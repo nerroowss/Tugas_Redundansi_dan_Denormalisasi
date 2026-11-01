@@ -114,9 +114,3 @@ Pembuatan tabel dan data contoh:
 ![Buat tabel](BUKTI/01_buat_tabel.png)
 
 ![Isi data](BUKTI/02_isi_data.png)
-
-## Kesimpulan
-Denormalisasi membuat pembacaan lebih sederhana karena tidak perlu JOIN dan
-agregasi, tetapi menambah redundansi sehingga data harus dijaga tetap sinkron.
-Trigger yang dipakai baru menangani INSERT. Untuk penghapusan pengajuan
-diperlukan trigger DELETE tersendiri.
