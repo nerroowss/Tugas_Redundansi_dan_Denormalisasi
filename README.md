@@ -3,9 +3,9 @@
 Modul 9 - Basis Data
 Program Studi Teknologi Rekayasa Perangkat Lunak (TRPL)
 
--- IKHZANIERO ARDYANA JUNIAR
--- TEKNOLOGI REKAYASA PERANGKAT LUNAK
--- 1C
+- IKHZANIERO ARDYANA JUNIAR
+- TEKNOLOGI REKAYASA PERANGKAT LUNAK
+- 1C
 
 ## Kasus yang Dipakai
 Tabel dari SKPL kelompok (sistem TepatSasar): `petugas`, `warga`, dan
@@ -18,7 +18,7 @@ Tabel dari SKPL kelompok (sistem TepatSasar): `petugas`, `warga`, dan
 | File / Folder | Keterangan |
 |---|---|
 | `tepatsasar_denormalisasi.sql` | Seluruh script: tabel, data, Tahap 1-3, bukti tidak sinkron, dan trigger |
-| `bukti/` | Screenshot hasil praktikum (01 sampai 14) |
+| `BUKTI/` | Screenshot hasil praktikum (01 sampai 14) |
 
 ## Cara Menjalankan
 1. Buka phpMyAdmin, pilih tab **Impor**.
@@ -29,14 +29,14 @@ Catatan: script diawali `DROP DATABASE IF EXISTS`, sehingga database
 `tepatsasar_denormalisasi` yang sudah ada akan dihapus dan dibuat ulang.
 
 ## Relasi Tabel
-![Designer](bukti/03_designer.png)
+![Designer](BUKTI/03_designer.png)
 
 Gambar diambil setelah Tahap 2, sehingga kolom `jumlah_pengajuan` sudah ada di tabel `warga`.
 
 ## Tahap 1 - Eksplorasi JOIN (Kondisi Normalisasi)
 Query `LEFT JOIN` + `COUNT` + `GROUP BY` untuk menghitung jumlah pengajuan per warga.
 
-![Tahap 1](bukti/04_tahap1_join.png)
+![Tahap 1](BUKTI/04_tahap1_join.png)
 
 Hasil: Budi 2, Siti 1, Joko 3, Rina 0.
 
@@ -56,20 +56,20 @@ dari hasil perhitungan Tahap 1.
 
 DDL `ALTER TABLE`:
 
-![ALTER TABLE](bukti/05_tahap2_alter_table.png)
+![ALTER TABLE](BUKTI/05_tahap2_alter_table.png)
 
 Mengisi kolom dengan `UPDATE` (3 baris berubah, Rina tetap 0):
 
-![UPDATE](bukti/06_tahap2_update_isi_kolom.png)
+![UPDATE](BUKTI/06_tahap2_update_isi_kolom.png)
 
 ## Tahap 3 - Pembuktian
 `SELECT` sederhana dari satu tabel, tanpa JOIN dan tanpa agregasi.
 
-![Tahap 3](bukti/07_tahap3_select_sederhana.png)
+![Tahap 3](BUKTI/07_tahap3_select_sederhana.png)
 
 Isi kolom pada tabel `warga`:
 
-![Isi kolom](bukti/08_tahap3_cek_isi_kolom.png)
+![Isi kolom](BUKTI/08_tahap3_cek_isi_kolom.png)
 
 Hasilnya sama dengan Tahap 1, tetapi query lebih sederhana dan lebih ringan.
 
@@ -86,34 +86,34 @@ di dua tempat dan bisa tidak sinkron.
 
 **1. Pengajuan baru untuk Budi dimasukkan**
 
-![Insert pengajuan baru](bukti/09_insert_pengajuan_baru.png)
+![Insert pengajuan baru](BUKTI/09_insert_pengajuan_baru.png)
 
 **2. Data tidak sinkron** (hasil JOIN 3, kolom tersimpan masih 2)
 
-![Tidak sinkron](bukti/10_bukti_tidak_sinkron.png)
+![Tidak sinkron](BUKTI/10_bukti_tidak_sinkron.png)
 
 **3. Sinkronisasi ulang dengan `UPDATE`** (1 baris berubah)
 
-![Sinkron ulang](bukti/11_update_sinkron_ulang.png)
+![Sinkron ulang](BUKTI/11_update_sinkron_ulang.png)
 
 **4. Trigger dibuat** (`trg_pengajuan_after_insert`, hanya untuk INSERT)
 
-![Buat trigger](bukti/12_buat_trigger.png)
+![Buat trigger](BUKTI/12_buat_trigger.png)
 
 **5. Tes trigger: pengajuan baru dimasukkan**
 
-![Tes trigger](bukti/13_insert_tes_trigger.png)
+![Tes trigger](BUKTI/13_insert_tes_trigger.png)
 
 **6. Hasil: kolom ikut naik otomatis** (Budi 4 dan 4)
 
-![Trigger sinkron](bukti/14_bukti_trigger_sinkron.png)
+![Trigger sinkron](BUKTI/14_bukti_trigger_sinkron.png)
 
 ## Persiapan Database
 Pembuatan tabel dan data contoh:
 
-![Buat tabel](bukti/01_buat_tabel.png)
+![Buat tabel](BUKTI/01_buat_tabel.png)
 
-![Isi data](bukti/02_isi_data.png)
+![Isi data](BUKTI/02_isi_data.png)
 
 ## Kesimpulan
 Denormalisasi membuat pembacaan lebih sederhana karena tidak perlu JOIN dan
